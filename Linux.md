@@ -3,6 +3,9 @@
 chmod /fs/project/PAS1475/guoqi/spatial_data/ -R 777  
 chmod -R 777 *  
 #Setting 777 permissions (chmod 777) to a file or directory means that it will be readable, writable and executable by all users
+<img width="864" alt="820d2596a4e385d02b6ce502bdf43f72" src="https://github.com/user-attachments/assets/e79b8b89-d4c1-49f4-b57b-51914389bc1b">
+
+
 
 **Note: do not use blank when name folder**  
 
