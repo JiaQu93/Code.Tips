@@ -9,7 +9,7 @@ chmod -R 777 *
 
 **Note: do not use blank when name folder**  
 
-## compress and decompress file 
+# Compress and decompress file 
 ### compress
 ```{r}
 gzip FileName
@@ -44,7 +44,7 @@ R
 ```{r}
 quit()
 ```
-# load JOB on server
+# Load JOB on server
 ```{linux}
 #upload
 sbatch xxx.sh
@@ -53,7 +53,7 @@ qstat jobname
 qstat -u guoqi
 https://maveric-informatics.readthedocs.io/en/latest/OSC.html
 ```
-# transfer file by remote server
+# Transfer file by remote server
 ```{r}
 scp -r guoqi@192.148.247.179:/fs/ess/PCON0022/guoqi/NC-snrna/atac_output/temp ./rawdata/temp
 ```
@@ -82,7 +82,7 @@ ls -a
 
 # OSC
 
-## create sh command
+## Create sh command
 ```{r}
 #!/bin/bash
 #SBATCH --job-name=directnet_examp
@@ -140,4 +140,18 @@ jobs
 ps aux | grep 04_Integration_scvi.py
 #id is the first number in the first row : 633763
 kill id
+```
+
+# Download file via terminal
+
+```
+wget "paste the copied URL here" -O GSE201586_humanallcelltypes.rds.gz
+#URL = https://www.ncbi.nlm.nih.gov/geo/download/?acc=GSE201586&format=file&file=GSE201586%5Fhumanallcelltypes%2Erds%2Egz
+
+#display the file size and confirm that the file is present in your current directory.
+ls -lh GSE201586_humanallcelltypes.rds.gz
+
+#uncompress gz terminal
+gunzip your_file.rds.gz
+
 ```
