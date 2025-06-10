@@ -85,7 +85,7 @@ module load R/4.4.0
 Rscript create_seurat_object.R
 
 
-#Submit sbatch job
+#Submit sbatch job ------------------------
 sbatch xxx.sh
 #Supervise
 qstat jobname
