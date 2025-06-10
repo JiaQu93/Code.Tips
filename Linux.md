@@ -44,11 +44,50 @@ R
 ```{r}
 quit()
 ```
-# Load JOB on server
+# Submit R JOB on server
 ```{linux}
-#upload
+#Create R script by nano ------------------------
+nano create_seurat_object.R
+
+library(Seurat)
+library(data.table)
+# Load gene expression 
+DRG_gene_expr <- fread("/fs/ess/PAS2556/Bioinformatics_analysis/Development.DRG/Data/GSE245310_human_DRG_gene_expr.txt")
+DRG_gene_expr <- as.data.frame(DRG_gene_expr)
+rownames(DRG_gene_expr) <- as.character(DRG_gene_expr[[1]])
+DRG_gene_expr$V1 <- NULL
+# Load metadata 
+DRG_meta <- read.csv("/fs/ess/PAS2556/Bioinformatics_analysis/Development.DRG/Data/DRG_meta_processed.csv", row.names = 1)
+# Create Seurat object 
+DRG_obj <- CreateSeuratObject(counts = DRG_gene_expr)
+# Add metadata
+rownames(DRG_meta) <- DRG_meta$cell
+DRG_obj <- AddMetaData(DRG_obj, metadata = DRG_meta)
+# Save Seurat object
+saveRDS(DRG_obj, file = "/fs/ess/PAS2556/Bioinformatics_analysis/Development.DRG/Data/DRG_obj.rds")
+
+#Create sbatch by nano ------------------------
+nano create_seurat_object.sh
+
+#!/bin/bash
+#SBATCH --job-name=create_seurat
+#SBATCH --output=create_seurat.%j.out
+#SBATCH --error=create_seurat.%j.err
+#SBATCH --account PAS2556
+#SBATCH --time=05:00:00
+#SBATCH --mem=128G
+#SBATCH --cpus-per-task=4
+# Load R module (adjust based on your HPC environment)
+module purge
+module load gcc/12.3.0
+module load R/4.4.0 
+# Run the R script
+Rscript create_seurat_object.R
+
+
+#Submit sbatch job
 sbatch xxx.sh
-#supervise
+#Supervise
 qstat jobname
 qstat -u guoqi
 https://maveric-informatics.readthedocs.io/en/latest/OSC.html
