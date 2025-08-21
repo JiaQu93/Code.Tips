@@ -1,4 +1,7 @@
-# 1. The Dot (.) in Python
+### Auto complete for path: 
+*Ctrl + Space* to trigger IntelliSense suggestions, including file paths.
+
+### 1. The Dot (.) in Python
 The dot (.) is used to access attributes, methods, or properties of objects in Python. It is a part of dot notation, which allows you to interact with the methods and properties of an object (e.g., a class instance, module, or data structure).
 
 Common Uses of Dot (.):
@@ -26,7 +29,7 @@ The dot is used to navigate modules and packages in Python.
 import numpy as np
 result = np.array([1, 2, 3])  # Accessing 'array' function from the numpy module using dot
 
-# 2. The Underscore (_) in Python
+### 2. The Underscore (_) in Python
 The underscore (_) has various uses in Python depending on where and how it is used. It serves as a convention in several cases, often to enhance code readability or follow Pythonic practices.
 
 
