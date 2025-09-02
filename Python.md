@@ -1,9 +1,11 @@
 # Check data
 ### Check distribution of adata.ob  
+```console
 for col in adata.obs.columns:  
     print(f"--- {col} ---")  
     print(adata.obs[col].value_counts())  
-    print()  
+    print()
+```
 
 # Shortcut
 ### Auto complete for path: 
