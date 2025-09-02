@@ -1,6 +1,15 @@
+# Check data
+### Check distribution of adata.ob
+for col in adata.obs.columns:
+    print(f"--- {col} ---")
+    print(adata.obs[col].value_counts())
+    print()
+
+# Shortcut
 ### Auto complete for path: 
 *Ctrl + Space* to trigger IntelliSense suggestions, including file paths.
 
+# Character usage
 ### The Dot (.) in Python
 The dot (.) is used to access attributes, methods, or properties of objects in Python. It is a part of dot notation, which allows you to interact with the methods and properties of an object (e.g., a class instance, module, or data structure).
 
