@@ -1,5 +1,5 @@
 # Check data
-### Check distribution of adata.ob  
+### Check distribution of adata.obs  
 ```console
 for col in adata.obs.columns:  
     print(f"--- {col} ---")  
