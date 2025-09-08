@@ -28,7 +28,15 @@ end with tar.gz-tar
 ```{r}
 tar zxvf FileName.tar.gz
 ```
-# Copy file
+
+# HPC(SLURM) sbatch command
+### 
+```console
+scontrol hold jobid 暂停，scontrol release jobid 恢复，scancel jobid 终止
+```
+
+# Basic command
+### Copy file
 ```{r}
 cd originalpath
 cp file targetpath
